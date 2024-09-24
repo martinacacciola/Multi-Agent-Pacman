@@ -13,3 +13,10 @@ In the context of the Pacman Capture the Flag Contest, MCTS can be used to guide
  <img width="324" alt="image" src="https://github.com/user-attachments/assets/44f7fee0-a4f6-4886-a603-b3d9b6d81f18">
 </p>
 
+## Pacman Environment
+The Pacman Capture the Flag Contest is a simple yet strategic game where two teams, red and blue, compete against each other. The goal of each team is to eat as many food pellets as possible from the opposing side while avoiding their ghost agent. When Pacman consumes food pellets, they are stored inside it and removed from the game board. The team scores one point per food pellet when Pacman returns to its original side. If Pacman is eaten by a ghost from the opposing team, the stored food pellets are scattered around the position where Pacman was caught. The game also includes power capsules, which, when consumed by Pacman, cause the opposing team’s agents to enter a ”scared” mode for 40 moves or until they are consumed by the powered-up Pacman. Eaten ”scared” ghosts respawn in their original position and normal state. The game concludes in one of two ways: either one team returns all but two of the opponents’ dots, or the game reaches a set number of total moves (default is 1200 moves, i.e., 300 moves per agent). The team that has returned the most food pellets wins when the move limit is reached.
+In the context of our task, these game rules and mechanics form the basis of the state and action space that the MCTS algorithm will explore. Each state in the MCTS tree represents a configuration of the game, including the positions of all characters and the remaining food pellets. Each action represents a possible move for Pacman or the ghost. The MCTS algorithm will simulate different sequences of actions, evaluate their outcomes, and select the most promising actions to execute. By doing so, it will guide the Pacman and ghost agents to make strategic decisions that maximize their score and chances of winning the game.
+
+
+
+
