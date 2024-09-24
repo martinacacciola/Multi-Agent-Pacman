@@ -26,14 +26,28 @@ Regarding the rewards and the evaluation of the current state, the agent collect
  <img width="738" alt="image" src="https://github.com/user-attachments/assets/6cd79a14-f616-4e68-b7c8-0ec62f106a58">
 </p>
 
-## Tournament and Results
+## Tournament
 To evaluate the performance of all the agents, we have designed a local tournament that incorporates every possible team combination from a set of five distinct agents: the Monte Carlo Tree Search agent, the defensive agent, the offensive agent, the Reflexive Defensive agent, and the Reflexive Offensive agent. This tournament structure ensures that each team, formed by pairing these agents in every possible configuration, competes against every other team configuration, playing once on the red side and once on the blue side to ensure in evaluation. This balanced, round-robin format allows us to gather insights into the performance dynamics of the agents in a variety of team settings, offering a nuanced understanding of their individual and cooperative strengths, weaknesses, and strategic value.
-Team Assessment We assess team performance by examining the Win-Draw-Loss Record of each agent combination throughout the tournament. Tracking each team’s win-draw-loss record across all games gives us a clear, straightforward indication of overall team performance. Alongside this, we evaluate the Point Differential for each game, the difference in points scored between the winning and losing teams. This metric indicates the level of dominance a team exhibits in their victories or, conversely, how narrow their losses are, offering insights into the competitive balance of the tournament.
-Agent Assessment To determine the individual contributions of each agent, we analyze Agent-Specific Win Rates by calculating the win rate of each agent across all games in which they participate. An agent that consistently features in winning teams, thus demonstrating a significantly higher win rate, is identified as potentially having a more substantial impact on their team’s success. This assessment is crucial for understanding the value of each agent’s contributions, even if these contributions are not directly quantifiable through scoring metrics. By focusing on win rates, we can infer the effectiveness of each agent in contributing to a team’s strategic and competitive advantages within the game’s environment.
+
+
+- Team Assessment: We assess team performance by examining the Win-Draw-Loss Record of each agent combination throughout the tournament. Tracking each team’s win-draw-loss record across all games gives us a clear, straightforward indication of overall team performance. Alongside this, we evaluate the Point Differential for each game, the difference in points scored between the winning and losing teams. This metric indicates the level of dominance a team exhibits in their victories or, conversely, how narrow their losses are, offering insights into the competitive balance of the tournament.
+
+- Agent Assessment: To determine the individual contributions of each agent, we analyze Agent-Specific Win Rates by calculating the win rate of each agent across all games in which they participate. An agent that consistently features in winning teams, thus demonstrating a significantly higher win rate, is identified as potentially having a more substantial impact on their team’s success. This assessment is crucial for understanding the value of each agent’s contributions, even if these contributions are not directly quantifiable through scoring metrics. By focusing on win rates, we can infer the effectiveness of each agent in contributing to a team’s strategic and competitive advantages within the game’s environment.
+
+## Results
+- Team performance: The evaluation of the performance of our teams is presented below. The colours help us recognize the areas of landslide victories. In many cases, there is a tie game, meaning that prevalently the teams are working with equality of forces. All the results including the number of wins, draws, losses, and score differences are presented in Table 1, calculated over 20 games played by each team. Here, a negative score means that the Red team has lost against its opponent (Blue team). The best performance can be attributed to the team composed of the Defensive and the Offensive Agents. From this, we can deduce that the heuristic approach is the best-performing one in our implementation, due to its efficiency and immediacy. On the other hand, the teams losing more matches are the ones including the MCTS Offensive Agent. Whilst, the MCTS ghost is performing well on defense when coupled with a heuristic Offensive Agent. This behavior can be addressed to the different tasks allocated to Pacman and the ghost. While the Defensive agent has the main goal of protecting its area by stopping and eating the enemy, the Offensive one is in charge of multiple objectives: it has to reach the power capsules, eat the pallets, and then go back to its region of the maze. The procedure of getting rewards becomes complex, making the action evaluations more complex and the optimal convergence of the algorithm more difficult.
 
 <p align="center">
  <img width="517" alt="image" src="https://github.com/user-attachments/assets/8d02c74d-b816-465b-aafe-b01c85ac1b79">
 </p>
+
+- Agent performance: To quantify the quality of performance of our agents, we calculate their scores using TrueSkill, a rating system used in multiplayer games to rank players based on their
+skill levels. The rating follows a Gaussian distribution which uses as mean the average skill of a player, and as standard deviation the confidence of the guessed rating. As we can see in the Fig. below, the best-performing Agents are the heuristic ones with the offensive agent taking the first place. This indicates that the greedy heuristics chosen work well against “simple” agents. However, these greedy approaches might fail against more sophisticated agents. For instance, our heuristic approaches might be vulnerable to agents who know how to use the power capsules to their advantage. The MCTS Agent is performing ∼ 30% worse concerning our best option.
+
+<p align="center">
+ <img width="618" alt="image" src="https://github.com/user-attachments/assets/e11e3884-1cdc-48c5-92ad-1a1355afc93a">
+</p>
+
 
 
 
